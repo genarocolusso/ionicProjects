@@ -1,0 +1,43 @@
+/* Empty. Add your own CSS if you like */
+div.win_n {
+	color: #FFFFFF;
+    background-color: #3BA90E;
+    padding: 0px 3px;
+    margin: 2px 5px;
+    border-radius: 2px;
+    font-weight: 700;
+    display: inline-block;
+}
+
+div.lost_n {
+	margin: 0px 5px;
+	 display: inline-block;
+	color: #FFFFFF;
+    background-color: #C30202;
+    padding: 0px 3px;
+    margin: 2px 5px;
+    border-radius: 2px;
+    font-weight: 700;
+}
+
+.no-padding{
+	padding: 0px;
+}
+
+.mostplayedheroes .row   .lilhero{
+height: 40px;
+    width: 40px;
+    background-size: cover;
+    margin: 0px 5px;
+    background-position: center;
+     border-radius: 5px;
+    background-color: #A2A2A2;
+     }
+     .mostplayedheroes .row   .lilhero:hover{
+ 
+    background-color: #E88C19;
+     }
+
+     .myProfile img{
+     	border-radius: 4px;
+     }
