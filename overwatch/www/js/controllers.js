@@ -2,13 +2,12 @@ angular.module('starter.controllers', [])
 
 .controller('DashCtrl', function($scope,$http, Profiles) {
 $scope.perfil = null;
-   $scope.msgerro = null;
- 
+$scope.msgerro = null; 
+
 $scope.getperfil = function(battletag,plataform,region){
 
       
           Profiles.getProfile(battletag, plataform, region).success(function(data){
-           
           $scope.perfil = data;
             
          });
@@ -20,6 +19,25 @@ $scope.getperfil = function(battletag,plataform,region){
         
  }
 
+ $scope.favoritar = function(profile, battletag){
+
+      Profiles.favoritar(profile,battletag);
+      $scope.favoritos = Profiles.getFavorites();
+
+ }
+
+})
+
+.controller('FavCtrl', function($scope, $http, Profiles){
+
+    $scope.favoritos = Profiles.getFavorites();
+    
+    $scope.remove = function(favorito) {
+      Profile.removeFav(favorito);
+    };
+    $scope.pegafavs = function(){
+      Profile.getFavorites();
+    }
 })
 
 
@@ -44,7 +62,7 @@ $scope.getperfil = function(battletag,plataform,region){
 
 
 
-.controller('ChatsCtrl', function($scope, Chats) {
+.controller('FavCtrl', function($scope, Profiles) {
   // With the new view caching in Ionic, Controllers are only called
   // when they are recreated or on app start, instead of every page change.
   // To listen for when this page is active (for example, to refresh data),
@@ -53,9 +71,9 @@ $scope.getperfil = function(battletag,plataform,region){
   //$scope.$on('$ionicView.enter', function(e) {
   //});
 
-  $scope.chats = Chats.todos();
-  $scope.remove = function(chat) {
-    Chats.remove(chat);
+  $scope.favoritos = Profiles.getFavorites();
+  $scope.remove = function(Favorite) {
+    Chats.remove(Favorite);
   };
 })
 

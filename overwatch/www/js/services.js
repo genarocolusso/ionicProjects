@@ -53,6 +53,7 @@ angular.module('starter.services', [])
 .factory('Profiles',  function($http) {
   // Might use a resource here that returns a JSON array
  
+   var favoritos = [];
 
   return {
     getProfile: function(battletag, plataform, region) {
@@ -72,6 +73,22 @@ angular.module('starter.services', [])
             url: getdata,
             method: 'GET'
         })
-    } 
+    },
+    getFavorites: function() {
+       
+      return favoritos;
+    }, 
+    removeFav: function(fav) {
+      favoritos.splice(favoritos.indexOf(fav), 1);
+    },
+    favoritar: function(profile, battletag) {
+      
+          return favoritos.push(
+      { battletag: battletag,
+        favoritado: profile.data
+          }); 
+
+    }
   };
+
 });

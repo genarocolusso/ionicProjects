@@ -42,19 +42,19 @@
 
 <div class="list"  ng-show="perfil" >
   
-<div class="card no-padding" ng-hide="perfil.error">
+<div class="card " ng-hide="perfil.error">
    
-  <div class="item item-text-wrap myProfile">
+  <div class="item item-text-wrap myProfile no-padding">
     <a class="item item-thumbnail-left item-icon-right" href="#">
       <img ng-src="{{perfil.data.avatar}}">
       <h2>{{user.battletag}}</h2>
       <h2>{{perfil.data.username}}</h2>
       <p>
-        <div class="win_n">wins {{perfil.data.games.wins}}</div>
+        <div class="win_n">Wins {{perfil.data.games.wins}}</div>
         <div class="lost_n">Lost {{perfil.data.games.lost}}</div>
       </p>
       <p> Level: {{perfil.data.level}}</p>
-      <i class="icon ion-heart"></i>
+      <i class="icon ion-heart" ng-click="favoritar(perfil, user.battletag)"></i>
     </a>
   </div>
   <div class="item item-divider">
@@ -66,10 +66,13 @@
    </div>
    
       </div>
+
     </div>
   </div>
 </div>
-
+ perfil:{{perfil}}
+      <br> Favoritos: 
+       <p ng-repeat="favorito in favoritos">{{favorito}}</p>
 
 <div class="list" ng-show="perfil.error">
 
