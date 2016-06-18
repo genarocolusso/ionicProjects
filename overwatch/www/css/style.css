@@ -44,3 +44,10 @@ height: 40px;
 
 
      
+     .level{
+        padding: 0px 5px;
+    background-color: #EC6F00;
+    color: #fff !important;
+    border-radius: 2px;
+    display: inline-block;
+     }

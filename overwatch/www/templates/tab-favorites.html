@@ -2,12 +2,11 @@
   <ion-content>
     <ion-list>
       <ion-item class="item-remove-animate item-avatar item-icon-right" ng-repeat="favorito in favoritos" type="item-text-wrap"  >
-      {{favoritos}}
-     
+       
         <img ng-src="{{favorito.favoritado.avatar}}">
-        <h2>{{favorito.battletag}}</h2>
+        <h2>{{favorito.battletag | filtroTag}}</h2>
          <p>{{favorito.favoritado.username}}</p>
-        <p>{{favorito.favoritado.level}}</p>
+        <p class="level">Level {{favorito.favoritado.level}}</p>
     
         <i class="icon ion-chevron-right icon-accessory"></i> 
 

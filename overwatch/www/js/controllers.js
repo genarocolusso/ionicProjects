@@ -1,11 +1,11 @@
 angular.module('starter.controllers', [])
 
-.controller('DashCtrl', function($scope,$http, Profiles) {
+.controller('DashCtrl', function($scope,$http,   Profiles) {
 $scope.perfil = null;
 $scope.msgerro = null; 
 
 $scope.getperfil = function(battletag,plataform,region){
-
+            
       
           Profiles.getProfile(battletag, plataform, region).success(function(data){
           $scope.perfil = data;
@@ -40,6 +40,15 @@ $scope.getperfil = function(battletag,plataform,region){
     }
 })
 
+
+.filter('filtroTag',function() {
+    return function(input) {
+        if (input) {
+            return input.replace( '-', '#');    
+        }
+    }
+   
+})
 
 
 

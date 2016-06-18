@@ -5,7 +5,7 @@
 <div class="list">    
       <label class="item item-input">
     <img class="icon" style="height: 14px; margin-right: 5px;"src="http://vignette2.wikia.nocookie.net/soundtracks/images/f/f2/Overwatch.png/revision/latest?cb=20151124023839">
-    <input type="text" placeholder="BattleTag (ex: Colusso-1321) change # for -" ng-model='user.battletag'>
+    <input type="text" placeholder="BattleTag (ex: Colusso-1321) change # for -" ng-model='user.battletag'  ng-trim="true">
   </label>
   
   <label class="item item-input item-select">
@@ -36,10 +36,10 @@
 
 
   <button class="button button-block button-energized" ng-click="getperfil(user.battletag, user.plataform, user.region)">
-  Find Me {{user.battletag}}
+  Find Me {{user.battletag |  filtroTag}}
   </button>
 </div>
-
+ 
 <div class="list"  ng-show="perfil" >
   
 <div class="card " ng-hide="perfil.error">
@@ -47,7 +47,7 @@
   <div class="item item-text-wrap myProfile no-padding">
     <a class="item item-thumbnail-left item-icon-right" href="#">
       <img ng-src="{{perfil.data.avatar}}">
-      <h2>{{user.battletag}}</h2>
+      <h2>{{user.battletag | filtroTag}}</h2>
       <h2>{{perfil.data.username}}</h2>
       <p>
         <div class="win_n">Wins {{perfil.data.games.wins}}</div>
@@ -70,14 +70,12 @@
     </div>
   </div>
 </div>
- perfil:{{perfil}}
-      <br> Favoritos: 
-       <p ng-repeat="favorito in favoritos">{{favorito}}</p>
+ 
 
 <div class="list" ng-show="perfil.error">
 
 <div class="card no-padding">
-    <h2>Sorry, profile not found (battletag is case-sensitive)</h2> 
+    <h3>Sorry, profile not found (battletag is case-sensitive)</h3> 
   </div>
 </div>
 
