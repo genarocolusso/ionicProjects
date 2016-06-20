@@ -9,7 +9,7 @@ $scope.getperfil = function(battletag,plataform,region){
       
           Profiles.getProfile(battletag, plataform, region).success(function(data){
           $scope.perfil = data;
-            
+         
          });
 
         Profiles.getHeroes(battletag, plataform, region).success(function(data){
@@ -23,7 +23,10 @@ $scope.getperfil = function(battletag,plataform,region){
 
       Profiles.favoritar(profile,battletag);
       $scope.favoritos = Profiles.getFavorites();
-
+      
+      //  window.localStorage.setItem("favoritos", );  
+      window.localStorage.setItem("favoritos",  JSON.stringify($scope.favoritos));  
+ 
  }
 
 })

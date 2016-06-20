@@ -25,15 +25,16 @@ angular.module('starter.services', [])
 
 
 .factory('Profiles',  function($http) {
-  // Might use a resource here that returns a JSON array
- 
-   var favoritos = [];
+  
+  var savedfavoritos = localStorage.getItem('favoritos'); //get fav
 
+  var favoritos = (localStorage.getItem('favoritos')!==null) ? JSON.parse(savedfavoritos) : []; // if null set []
+    
   return {
     getProfile: function(battletag, plataform, region) {
         
        var getdata = "https://api.lootbox.eu/"+plataform+"/"+region+"/"+battletag+"/profile";
-        //alert(getdata);
+     
       return $http({
             url: getdata,
             method: 'GET'
@@ -49,18 +50,22 @@ angular.module('starter.services', [])
         })
     },
     getFavorites: function() {
-       
+      
       return favoritos;
     }, 
     removeFav: function(fav) {
       favoritos.splice(favoritos.indexOf(fav), 1);
     },
     favoritar: function(profile, battletag) {
-      
-          return favoritos.push(
+
+      favoritos.push(
       { battletag: battletag,
         favoritado: profile.data
           }); 
+         
+        // push it to favorite array
+        
+         
 
     }
   };
