@@ -59,6 +59,15 @@ angular.module('starter', ['ionic','ionic.service.core', 'starter.controllers', 
       }
     }
   })
+  .state('tab.favorites-detail', {
+      url: '/favorites/:region/:platform/:battletag/:indexo',
+      views: {
+        'tab-favorites': {
+          templateUrl: 'templates/favorites-detail.html',
+          controller: 'FavCtrlDetail'
+        }
+      }
+    })
   .state('tab.favorites', {
       url: '/favorites',
       views: {

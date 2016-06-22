@@ -56,17 +56,18 @@ angular.module('starter.services', [])
     removeFav: function(fav) {
       favoritos.splice(favoritos.indexOf(fav), 1);
     },
-    favoritar: function(profile, battletag) {
+    favoritar: function(profile, battletag,platform,region, indexo) {
 
       favoritos.push(
-      { battletag: battletag,
+      { 
+        battletag: battletag,
+        platform: platform,
+        region: region,
         favoritado: profile.data
           }); 
          
         // push it to favorite array
-        
          
-
     }
   };
 

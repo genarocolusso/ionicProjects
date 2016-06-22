@@ -1,0 +1,24 @@
+<!--
+  This template loads for the 'tab.friend-detail' state (app.js)
+  'friend' is a $scope variable created in the FriendsCtrl controller (controllers.js)
+  The FriendsCtrl pulls data from the Friends service (service.js)
+  The Friends service returns an array of friend data
+-->
+<ion-view view-title="{{userinfos.battletag | filtroTag}}" >
+  <ion-content class="padding">
+    <img ng-src="{{usuariofavoritado.favoritado.avatar}}" style="width: 64px; height: 64px">
+     <p> {{userinfos.battletag | filtroTag}} </p>
+     <p> {{userinfos.region}} </p>
+       <p> {{userinfos.indexo}} </p>
+
+
+      <h2>{{usuariofavoritado.favoritado.username}}</h2>
+      <p>
+        <div class="win_n">Wins {{usuariofavoritado.favoritado.games.wins}}</div>
+        <div class="lost_n">Lost {{usuariofavoritado.favoritado.games.lost}}</div>
+      </p>
+      <p> Level: {{usuariofavoritado.favoritado.level}}</p>
+      <a href="#/tab/favorites"> Back to Favs </a>
+       <button class="button icon ion-trash-a" ng-click="remove(usuariofavoritado)"></button>
+  </ion-content>
+</ion-view>
