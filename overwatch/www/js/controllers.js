@@ -1,4 +1,4 @@
-angular.module('starter.controllers', [])
+angular.module('starter.controllers', ['ionic'])
 
 .controller('DashCtrl', function($scope,$http, Profiles) {
   $scope.perfil = null;
@@ -39,6 +39,12 @@ angular.module('starter.controllers', [])
   $scope.pegafavs = function(){
     Profile.getFavorites();
   }
+
+      $scope.remove = function(favorito) {
+    Profiles.removeFav(favorito);
+
+    window.localStorage.setItem("favoritos",  JSON.stringify($scope.favoritos));  
+    } 
 })
 
 .controller('FavCtrlDetail', function($scope, $stateParams, Profiles) {
@@ -63,11 +69,11 @@ angular.module('starter.controllers', [])
       }
 
 
-      $scope.remove = function(favorito) {
-    Profiles.removeFav(favorito);
+  //     $scope.remove = function(favorito) {
+  //   Profiles.removeFav(favorito);
 
-    window.localStorage.setItem("favoritos",  JSON.stringify($scope.favoritos));  
-  }
+  //   window.localStorage.setItem("favoritos",  JSON.stringify($scope.favoritos));  
+  // }
 
 
 })
@@ -81,17 +87,6 @@ angular.module('starter.controllers', [])
   }
 
 })
- 
-
- .controller('FavCtrl', function($scope, Profiles) {
- 
-
- $scope.favoritos = Profiles.getFavorites();
- $scope.remove = function(Favorite) {
-  Chats.remove(Favorite);
-};
-})
-
   
 
  .controller('AccountCtrl', function($scope) {

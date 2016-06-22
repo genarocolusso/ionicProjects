@@ -1,14 +1,14 @@
 <ion-view view-title="Favorites">
   <ion-content>
     <ion-list>
-      <ion-item class="item-remove-animate item-avatar item-icon-right" ng-repeat="favorito in favoritos track by $index" type="item-text-wrap"   href="#/tab/favorites/{{favorito.region}}/{{favorito.platform}}/{{favorito.battletag}}/{{$index}}"  >
+      <ion-item class="item-remove-animate item-avatar item-icon-right item-icon-right" ng-repeat="favorito in favoritos track by $index" type="item-text-wrap"  >
        
         <img ng-src="{{favorito.favoritado.avatar}}">
         <h2>{{favorito.battletag | filtroTag}}</h2>
          <p>{{favorito.favoritado.username}}</p>
         <p class="level">Level {{favorito.favoritado.level}}</p>
-       
-        <i class="icon ion-chevron-right icon-accessory"></i> 
+        <button class="button   ion-trash-a" ng-click="remove(favorito)"></button>
+        <a href="#/tab/favorites/{{favorito.region}}/{{favorito.platform}}/{{favorito.battletag}}/{{$index}}" > <i class="icon ion-chevron-right icon-accessory"   ></i>  </a>
  
       </ion-item>
     </ion-list>

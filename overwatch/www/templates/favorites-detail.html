@@ -6,7 +6,7 @@
 -->
 <ion-view view-title="{{userinfos.battletag | filtroTag}}" >
   <ion-content class="padding">
-    <img ng-src="{{usuariofavoritado.favoritado.avatar}}" style="width: 64px; height: 64px">
+    <img ng-src="{{usuariofavoritado.favoritado.avatar}}" style="width: 80px; height: 80px">
      <p> {{userinfos.battletag | filtroTag}} </p>
      <p> {{userinfos.region}} </p>
        <p> {{userinfos.indexo}} </p>
@@ -19,6 +19,6 @@
       </p>
       <p> Level: {{usuariofavoritado.favoritado.level}}</p>
       <a href="#/tab/favorites"> Back to Favs </a>
-       <button class="button icon ion-trash-a" ng-click="remove(usuariofavoritado)"></button>
+       
   </ion-content>
 </ion-view>
