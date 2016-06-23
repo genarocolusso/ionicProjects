@@ -54,7 +54,7 @@
         <div class="lost_n">Lost {{perfil.data.games.lost}}</div>
       </p>
       <p> Level: {{perfil.data.level}}</p>
-      <i class="icon ion-heart" ng-click="favoritar(perfil, user.battletag,user.plataform, user.region)"></i>
+      <i ng-class="{'icon ion-ios-heart liked': liked, 'icon ion-ios-heart ': !liked}"  ng-click="!liked ? favoritar(perfil, user.battletag,user.plataform, user.region) : null"></i>
     </a>
   </div>
   <div class="item item-divider">

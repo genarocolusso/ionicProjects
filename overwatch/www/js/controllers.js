@@ -5,7 +5,23 @@ angular.module('starter.controllers', ['ionic'])
   $scope.msgerro = null; 
   
   $scope.getperfil = function(battletag,plataform,region){
+    $scope.liked = false; //set liked to false first and check it.
+ 
 
+     $scope.favoritos = Profiles.getFavorites();
+   
+   
+      for (var i = 0; i < $scope.favoritos.length; i++) {
+        if ( $scope.favoritos[i].battletag === battletag) {
+           $scope.liked = true; // coracao rosado
+           break;
+        }else{
+          $scope.liked = false; //nada acontece
+        }
+      }
+
+
+ 
 
     Profiles.getProfile(battletag, plataform, region).success(function(data){
       $scope.perfil = data;
@@ -20,6 +36,8 @@ angular.module('starter.controllers', ['ionic'])
   }
 
   $scope.favoritar = function(profile, battletag, platform, region){
+
+      $scope.liked = true;
 
     Profiles.favoritar(profile,battletag, platform, region);
     $scope.favoritos = Profiles.getFavorites();
@@ -68,12 +86,7 @@ angular.module('starter.controllers', ['ionic'])
         }
       }
 
-
-  //     $scope.remove = function(favorito) {
-  //   Profiles.removeFav(favorito);
-
-  //   window.localStorage.setItem("favoritos",  JSON.stringify($scope.favoritos));  
-  // }
+ 
 
 
 })
