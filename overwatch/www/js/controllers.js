@@ -35,11 +35,11 @@ angular.module('starter.controllers', ['ionic'])
 
   }
 
-  $scope.favoritar = function(profile, battletag, platform, region){
+  $scope.favoritar = function(mostplayed, profile, battletag, platform, region){
 
       $scope.liked = true;
 
-    Profiles.favoritar(profile,battletag, platform, region);
+    Profiles.favoritar(mostplayed,profile,battletag, platform, region);
     $scope.favoritos = Profiles.getFavorites();
     console.log($scope.favoritos);
      
@@ -49,7 +49,7 @@ angular.module('starter.controllers', ['ionic'])
 
   })
 
-.controller('FavCtrl', function($scope, $http, Profiles){
+.controller('FavCtrl', function($scope, $http, Profiles,$sanitize){
 
   $scope.favoritos = Profiles.getFavorites();
 
@@ -65,7 +65,7 @@ angular.module('starter.controllers', ['ionic'])
     } 
 })
 
-.controller('FavCtrlDetail', function($scope, $stateParams, Profiles) {
+.controller('FavCtrlDetail', function($scope, $stateParams, Profiles, $sanitize) {
  var region = $stateParams.region ;
  var platform = $stateParams.platform  ;
  var battletag = $stateParams.battletag ;

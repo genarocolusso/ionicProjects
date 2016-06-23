@@ -5,20 +5,40 @@
   The Friends service returns an array of friend data
 -->
 <ion-view view-title="{{userinfos.battletag | filtroTag}}" >
-  <ion-content class="padding">
-    <img ng-src="{{usuariofavoritado.favoritado.avatar}}" style="width: 80px; height: 80px">
-     <p> {{userinfos.battletag | filtroTag}} </p>
-     <p> {{userinfos.region}} </p>
-       <p> {{userinfos.indexo}} </p>
+<ion-content>
+<div class="row usercard">
+  <div class="col col-30">
+  <img ng-src="{{usuariofavoritado.favoritado.avatar}}" style="width: 70px;height: 70px;margin-top: 8px;">
+  
+  </div>
+  <div class="col col-80">
 
+  <h2 class="su_text">{{usuariofavoritado.favoritado.username}}</h2>
+   <p  class="su_text"> {{userinfos.battletag | filtroTag}} </p>  
+   
+    <div class="win_n">Wins {{usuariofavoritado.favoritado.games.wins}}</div>
+    <div class="lost_n">Lost {{usuariofavoritado.favoritado.games.lost}}</div>
+   
+  <p class="user_lv">{{usuariofavoritado.favoritado.level}}</p>
+  <a href="#/tab/favorites"> Back to Favs </a>
+</div>
+</div>  
 
-      <h2>{{usuariofavoritado.favoritado.username}}</h2>
-      <p>
-        <div class="win_n">Wins {{usuariofavoritado.favoritado.games.wins}}</div>
-        <div class="lost_n">Lost {{usuariofavoritado.favoritado.games.lost}}</div>
-      </p>
-      <p> Level: {{usuariofavoritado.favoritado.level}}</p>
-      <a href="#/tab/favorites"> Back to Favs </a>
-       
-  </ion-content>
+<div class="list">
+
+  <div class="item item-divider">
+    Heroes Statistics
+  </div>
+
+  <a class="item  item-thumbnail-right herostats" ng-repeat="hero in usuariofavoritado.heroes">
+   <img ng-src="{{hero.image}}" >
+   <h2> {{hero.name}}</h2>
+   <p> played: {{hero.playtime}}</p>
+  </a>
+
+  
+
+</div>
+
+</ion-content>
 </ion-view>
