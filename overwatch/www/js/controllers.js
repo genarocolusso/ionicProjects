@@ -49,7 +49,7 @@ angular.module('starter.controllers', ['ionic'])
 
   })
 
-.controller('FavCtrl', function($scope, $http, Profiles,$sanitize){
+.controller('FavCtrl', function($scope, $http, $state,$timeout, $ionicActionSheet, Profiles,$sanitize) {
 
   $scope.favoritos = Profiles.getFavorites();
 
@@ -63,6 +63,49 @@ angular.module('starter.controllers', ['ionic'])
 
     window.localStorage.setItem("favoritos",  JSON.stringify($scope.favoritos));  
     } 
+
+
+    $scope.show = function(favorito,index) {
+
+   // Show the action sheet
+   var hideSheet = $ionicActionSheet.show({
+     buttons: [
+       { text:   ' <i class="icon ion-happy-outline"></i>'+
+    'View Profile     ' },
+       { text:  ' <i class="icon ion-refresh"></i>'+
+    'Update  ' }
+     ],
+     destructiveClass: 'icon ion-trash-b',
+     destructiveText: 'Delete',
+     titleText: 'Actions for <strong>'+favorito.favoritado.username+'</strong>',
+     cancelText: 'Cancel',
+     destructiveButtonClicked: function() {
+          $scope.remove(favorito); 
+          return true;
+        },
+     buttonClicked: function(index) {
+      switch (index){
+      case 0 :
+       $state.go('tab.favorites-detail',{"region": favorito.region, "platform": favorito.platform, "battletag": favorito.battletag, "indexo": index});  
+        return true;
+      case 1 :
+        //Handle Move Button
+        return true;
+    }
+
+      
+
+     }
+   })
+
+   // For example's sake, hide the sheet after two seconds
+   $timeout(function() {
+     hideSheet();
+   }, 55000)
+
+     }
+
+
 })
 
 .controller('FavCtrlDetail', function($scope, $stateParams, Profiles, $sanitize) {

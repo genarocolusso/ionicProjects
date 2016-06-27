@@ -1,19 +1,19 @@
 <ion-view view-title="Favorites">
   <ion-content>
     <ion-list>
-      <ion-item class="item-remove-animate item-avatar   " ng-repeat="favorito in favoritos track by $index" type="item-text-wrap" style="padding-left:10px;" >
+      <ion-item class="item-remove-animate item-avatar   " ng-repeat="favorito in favoritos track by $index" type="item-text-wrap" style="padding-left:10px;" ng-click="show(favorito,$index)" >
        <div class="row">
-        <div class="col col-70" style="text-align:left;">
+        <div class="col " style="text-align:center;display: flex;flex-direction: row;">
         <img ng-src="{{favorito.favoritado.avatar}}" style="width: 60px; height: 60px;">
+        <div class="favinfo">
         <h1 class="favh1">{{favorito.battletag | filtroTag}}</h1>
+
          <p>{{favorito.favoritado.username}}</p>
         <p class="level">Level {{favorito.favoritado.level}}</p>
+      </div>
         </div>
-        <div class="col col-30" style="text-align:right;">
-           <button class="button button-clear button-positive"  ng-click="remove(favorito)">Delete</button> 
-           <a  href="#/tab/favorites/{{favorito.region}}/{{favorito.platform}}/{{favorito.battletag}}/{{$index}}"> <button class=" button button-clear button-positive" >View</button> </a>
-         </div>
-       </div>
+      </div>
+       
  
       </ion-item>
     </ion-list>

@@ -1,4 +1,5 @@
  
+/* Empty. Add your own CSS if you like */
 .icon.liked {
   color: #FF0076;
   transition: 0.3s all ease-in-out;
@@ -61,6 +62,12 @@ div.lost_n {
 
 .myProfile img {
   border-radius: 4px; }
+
+
+.favinfo{
+  margin-left:15px;
+}
+
 
 .level {
   padding: 0px 5px;
@@ -133,5 +140,15 @@ h2.su_text {
 .contatos.item {
   border-width: 0; }
 
-
 /*# sourceMappingURL=ionicapp.css.map */
+
+body.platform-android   .action-sheet .button {
+    text-align: left;
+    border-color: rgba(162, 162, 162, 0.17);
+    font-size: 16px;
+    color: inherit;
+}
+.action-sheet-group.action-sheet-options .button.destructive{
+
+
+}
