@@ -65,16 +65,37 @@ div.lost_n {
 
 
 .favinfo{
-  margin-left:15px;
+   
+  display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.favuser{
+    text-align: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
 }
 
+.badgeuser {
+    min-width: 3em;
+    padding: 3px 5px;
+    background-color: #607D8B;
+    color: #fff !important;
+    border-radius: 2px;
+    font-weight: bold;
+      }
 
-.level {
-  padding: 0px 5px;
-  background-color: #EC6F00;
-  color: #fff !important;
-  border-radius: 2px;
-  display: inline-block; }
+      .badgeuser.pc{
+          background-color: #F44336;
+      }
+      .badgeuser.xbl{
+            background-color: #4CAF50;
+      }
+
+      .badgeuser.psn{
+            background-color: #2196F3;
+      } 
 
 .row.usercard {
   background: #0C1723;
@@ -97,7 +118,8 @@ div.lost_n {
   padding: 0; }
 
 h2.su_text {
-  color: #FFA900 !important; }
+  color: #FFA900 !important; 
+    font-size: 1.6em;}
 
 .bar.bar-dark {
   border-color: #111;

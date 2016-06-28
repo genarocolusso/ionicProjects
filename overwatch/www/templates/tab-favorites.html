@@ -3,15 +3,22 @@
     <ion-list>
       <ion-item class="item-remove-animate item-avatar   " ng-repeat="favorito in favoritos track by $index" type="item-text-wrap" style="padding-left:10px;" ng-click="show(favorito,$index)" >
        <div class="row">
-        {{$index}}
-        <div class="col " style="text-align:center;display: flex;flex-direction: row;">
+         
+        <div class="col favuser" style="text-align:center;display: flex;flex-direction: row;">
         <img ng-src="{{favorito.favoritado.avatar}}" style="width: 60px; height: 60px;">
+
         <div class="favinfo">
         <h1 class="favh1">{{favorito.battletag | filtroTag}}</h1>
 
          <p>{{favorito.favoritado.username}}</p>
-        <p class="level">Level {{favorito.favoritado.level}}</p>
+         
       </div>
+      <div class="favinfo">
+         
+        <p  class="badgeuser {{favorito.platform}}"> {{favorito.platform | uppercase}}</p>
+        <p class="badgeuser"> {{favorito.favoritado.level}}</p>
+      </div>
+      
         </div>
       </div>
        

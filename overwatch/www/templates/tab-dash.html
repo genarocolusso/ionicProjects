@@ -5,7 +5,7 @@
 <div class="list">    
       <label class="item item-input">
     <img class="icon" style="height: 14px; margin-right: 5px;"src="http://vignette2.wikia.nocookie.net/soundtracks/images/f/f2/Overwatch.png/revision/latest?cb=20151124023839">
-    <input type="text" placeholder="BattleTag (ex: Colusso-1321) change # for -" ng-model='user.battletag'  ng-trim="true">
+    <input type="text" placeholder="PSN, XBL Or BattleTag (ex: Colusso-1321) change # for -" ng-model='user.battletag'  ng-trim="true">
   </label>
   
   <label class="item item-input item-select">
@@ -19,6 +19,7 @@
       <option value="eu">EU</option>
       <option value="kr">KR</option>
       <option value="cn">CN</option>
+      <option value="global">GLOBAL</option>
     </select>
   </label>
   <label class="item item-input item-select">
@@ -26,11 +27,12 @@
      <i class="icon ion-ios-game-controller-b-outline"></i> Platform
     </div>
     <select ng-model='user.plataform'>
+      <option value="pc">PC</option>
       <option value="psn">
         PSN
       </option>
       <option value="xbl">XBL</option>
-      <option value="pc">PC</option>
+      
     </select>
   </label>
 
