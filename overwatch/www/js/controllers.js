@@ -65,7 +65,7 @@ angular.module('starter.controllers', ['ionic'])
     } 
 
 
-    $scope.show = function(favorito,index) {
+    $scope.show = function(favorito,indexo) {
 
    // Show the action sheet
    var hideSheet = $ionicActionSheet.show({
@@ -86,7 +86,7 @@ angular.module('starter.controllers', ['ionic'])
      buttonClicked: function(index) {
       switch (index){
       case 0 :
-       $state.go('tab.favorites-detail',{"region": favorito.region, "platform": favorito.platform, "battletag": favorito.battletag, "indexo": index});  
+       $state.go('tab.favorites-detail',{"region": favorito.region, "platform": favorito.platform, "battletag": favorito.battletag, "indexo": indexo});  
         return true;
       case 1 :
         //Handle Move Button

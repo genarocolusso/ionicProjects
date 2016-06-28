@@ -3,6 +3,7 @@
     <ion-list>
       <ion-item class="item-remove-animate item-avatar   " ng-repeat="favorito in favoritos track by $index" type="item-text-wrap" style="padding-left:10px;" ng-click="show(favorito,$index)" >
        <div class="row">
+        {{$index}}
         <div class="col " style="text-align:center;display: flex;flex-direction: row;">
         <img ng-src="{{favorito.favoritado.avatar}}" style="width: 60px; height: 60px;">
         <div class="favinfo">
