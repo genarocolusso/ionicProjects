@@ -52,11 +52,11 @@
       <h2><strong>{{user.battletag | filtroTag}}</strong></h2>
       <h2>{{perfil.data.username}}</h2>
       <p>
-        <div class="win_n">Wins {{perfil.data.games.wins}}</div>
-        <div class="lost_n">Lost {{perfil.data.games.lost}}</div>
+        <div class="win_n">Wins {{perfil.data.games.quick.wins}}</div>
+        <div class="lost_n">Lost {{perfil.data.games.quick.lost}}</div>
       </p>
       <p> Level: {{perfil.data.level}}</p>
-      <i ng-class="{'icon ion-ios-heart liked': liked, 'icon ion-ios-heart ': !liked}"  ng-click="!liked ? favoritar(mostplayed, perfil, user.battletag,user.plataform, user.region) : null"></i>
+      <i ng-class="{'icon ion-ios-heart liked': liked, 'icon ion-ios-heart ': !liked}"  ng-click="!liked ? favoritar(mostplayedQuick,mostplayedCompetitive, perfil, user.battletag,user.plataform, user.region) : null"></i>
     </a>
   </div>
   <div class="item item-divider">
@@ -64,7 +64,7 @@
     <div class="mostplayedheroes">
      <div class="row">
    <div class="lilhero" style="background-image: url({{hero.image}})"
-   ng-repeat="hero in mostplayed | limitTo:4"> </div>  
+   ng-repeat="hero in mostplayedQuick | limitTo:4"> </div>  
    </div>
    
       </div>

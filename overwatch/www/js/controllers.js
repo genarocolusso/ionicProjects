@@ -28,20 +28,24 @@ angular.module('starter.controllers', ['ionic'])
     console.log($scope.perfil);
     });
 
-    Profiles.getHeroes(battletag, plataform, region).success(function(data){
-      $scope.mostplayed = data;
+    Profiles.getHeroesQuick(battletag, plataform, region).success(function(data){
+      $scope.mostplayedQuick = data;
+
+    });
+    Profiles.getHeroesCompetitive(battletag, plataform, region).success(function(data){
+      $scope.mostplayedCompetitive = data;
 
     });
 
   }
 
-  $scope.favoritar = function(mostplayed, profile, battletag, platform, region){
+  $scope.favoritar = function(mostplayedquick,mostplayedcompetitive, profile, battletag, platform, region){
 
       $scope.liked = true;
 
-    Profiles.favoritar(mostplayed,profile,battletag, platform, region);
+    Profiles.favoritar(mostplayedquick,mostplayedcompetitive,profile,battletag, platform, region);
     $scope.favoritos = Profiles.getFavorites();
-    console.log($scope.favoritos);
+    //console.log($scope.favoritos);
      
       window.localStorage.setItem("favoritos",  JSON.stringify($scope.favoritos));  
 

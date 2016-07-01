@@ -19,8 +19,17 @@ angular.module('starter.services', [])
         })
  
     },
-    getHeroes: function(battletag, plataform, region){
-          var getdata = "https://api.lootbox.eu/"+plataform+"/"+region+"/"+battletag+"/heroes";
+    getHeroesQuick: function(battletag, plataform, region){
+          var getdata = "https://api.lootbox.eu/"+plataform+"/"+region+"/"+battletag+"/quick-play/heroes";
+        
+      return $http({
+            url: getdata,
+            method: 'GET'
+        })
+    },
+
+    getHeroesCompetitive: function(battletag, plataform, region){
+          var getdata = "https://api.lootbox.eu/"+plataform+"/"+region+"/"+battletag+"/competitive-play/heroes";
         
       return $http({
             url: getdata,
@@ -34,7 +43,7 @@ angular.module('starter.services', [])
     removeFav: function(fav) {
       favoritos.splice(favoritos.indexOf(fav), 1);
     },
-    favoritar: function(mostplayed, profile, battletag,platform,region, indexo) {
+    favoritar: function(mostplayedQuick,mostplayedCompetitive, profile, battletag,platform,region, indexo) {
 
       favoritos.push(
       { 
@@ -42,7 +51,8 @@ angular.module('starter.services', [])
         platform: platform,
         region: region,
         favoritado: profile.data,
-        heroes: mostplayed
+        heroesQuick: mostplayedQuick,
+        heroesCompetitive: mostplayedCompetitive,
           }); 
          
         // push it to favorite array
