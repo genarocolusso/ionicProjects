@@ -48,16 +48,17 @@ div.lost_n {
 .no-padding {
   padding: 0px; }
 
-.mostplayedheroes .row .lilhero {
+.mostplayedheroes  .lilhero {
   height: 40px;
   width: 40px;
   background-size: cover;
-  margin: 0px 5px;
+  margin: 0px 2px;
   background-position: center;
   border-radius: 5px;
-  background-color: #A2A2A2; }
+  background-color: #A2A2A2;
+  display: inline-block; }
 
-.mostplayedheroes .row .lilhero:hover {
+.mostplayedheroes  .lilhero:hover {
   background-color: #E88C19; }
 
 .myProfile img {
@@ -149,6 +150,12 @@ h2.su_text {
   background-color: #FF9800;
   border-radius: 4px; }
 
+
+.item.herostats{
+
+    padding: 3px 16px;
+     min-height: 0px !important;
+}
 .iconinline {
   font-size: 24px;
   vertical-align: middle; }
@@ -184,3 +191,6 @@ p.seccolor.quick{
     color: #2196F3;
     font-weight: bold;
 }
+
+.marg_top_bot{ }
+.marg_top_bot.fivep{ margin: 5px 0px;}

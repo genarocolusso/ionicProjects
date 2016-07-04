@@ -43,7 +43,7 @@ angular.module('starter.services', [])
     removeFav: function(fav) {
       favoritos.splice(favoritos.indexOf(fav), 1);
     },
-    favoritar: function(mostplayedQuick,mostplayedCompetitive, profile, battletag,platform,region, indexo) {
+    favoritar: function(mostplayed, profile, battletag,platform,region, indexo) {
 
       favoritos.push(
       { 
@@ -51,8 +51,7 @@ angular.module('starter.services', [])
         platform: platform,
         region: region,
         favoritado: profile.data,
-        heroesQuick: mostplayedQuick,
-        heroesCompetitive: mostplayedCompetitive,
+        heroesmostplayed: mostplayed 
           }); 
          
         // push it to favorite array

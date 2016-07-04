@@ -60,12 +60,27 @@
     </a>
   </div>
   <div class="item item-divider">
-    Most played heroes
+   
     <div class="mostplayedheroes">
 
-     <div class="row" ng-repeat="heroes in mostplayed">
+     <div class="marg_top_bot fivep" ng-repeat="heroes in mostplayed"  >
+
+    <h4 ng-if='heroes.quick'> Quick Play - Wins {{perfil.data.games.quick.wins}} / Lost {{perfil.data.games.quick.lost}} </h4>
+    <h4 ng-if='heroes.competitive'> Competitive Play - Wins {{perfil.data.games.competitive.wins}} / Lost {{perfil.data.games.competitive.lost}}  </h4>
+    <div >
    <div class="lilhero" style="background-image: url({{hero.image}})"
-   ng-repeat="hero in heroes | limitTo:4"> </div>  
+   ng-repeat="hero in heroes.quick| limitTo:4" ng-if="heroes.quick" > 
+     
+   
+  </div>
+    </div>
+   <div >
+  <div class="lilhero" style="background-image: url({{hero.image}})"
+   ng-repeat="hero in heroes.competitive| limitTo:4" ng-if="heroes.competitive" > 
+     
+   
+  </div>  
+  </div>
    </div>
    
       </div>

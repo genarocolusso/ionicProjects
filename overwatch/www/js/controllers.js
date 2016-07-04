@@ -6,7 +6,9 @@ angular.module('starter.controllers', ['ionic'])
   $scope.mostplayed =[];
   $scope.getperfil = function(battletag,plataform,region){
     $scope.liked = false; //set liked to false first and check it.
- 
+        $scope.perfil = null;
+        $scope.msgerro = null; 
+        $scope.mostplayed =[];
 
      $scope.favoritos = Profiles.getFavorites();
    
@@ -127,11 +129,12 @@ angular.module('starter.controllers', ['ionic'])
 
   $scope.favoritos = Profiles.getFavorites();
    //$scope.usuariofavoritado  = $scope.favoritos[0];
-   console.log($scope.usuariofavoritado );
+   
       for (var i = 0; i < $scope.favoritos.length; i++) {
         if ( $scope.favoritos.indexOf($scope.favoritos[i]) === parseInt(indexFav)) {
            $scope.usuariofavoritado  = $scope.favoritos[i];
         }
+        console.log($scope.usuariofavoritado );
       }
 
  
@@ -144,6 +147,15 @@ angular.module('starter.controllers', ['ionic'])
   return function(input) {
     if (input) {
       return input.replace( '-', '#');    
+    }
+  }
+
+})
+
+ .filter('nulltoZero',function() {
+  return function(input) {
+    if (input == null) {
+      return input=0;    
     }
   }
 

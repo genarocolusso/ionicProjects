@@ -24,27 +24,39 @@
 <div class="list">
 
   <div class="item item-divider">
-    Heroes Statistics
+    Heroes Statistics Quick
   </div>
 
-  <a class="item  item-thumbnail-right herostats" ng-repeat="hero in usuariofavoritado.heroesQuick track by $index">
-  <img ng-src="{{hero.image}}" >
-  <h2> {{hero.name}}</h2>
+  <a class="item  item-thumbnail-right herostats" ng-repeat="hero in usuariofavoritado.heroesmostplayed[1].quick track by $index">
+  <img ng-src="{{hero.image}}"  style="height: 50px; width:50px;">
+   
   <div class="row">
   <div class="col">
     <p class="seccolor quick"> Quick Play </p>
   <p> played: {{hero.playtime}}</p>
   
   </div>
+  
+  </div>
+  </a>
+  
+  <div class="item item-divider">
+    Heroes Statistics Competitive
+  </div>
+
+  <a class="item  item-thumbnail-right herostats" ng-repeat="hero in usuariofavoritado.heroesmostplayed[0].competitive track by $index">
+  <img ng-src="{{hero.image}}"  style="height: 50px; width:50px;">
+   
+  <div class="row">
   <div class="col">
-    <p class="seccolor competitive"> Competitive Play </p>
+    <p class="seccolor quick"> Quick Play </p>
   <p> played: {{hero.playtime}}</p>
   
   </div>
+  
   </div>
   </a>
-
-  
+ 
 
 </div>
 
