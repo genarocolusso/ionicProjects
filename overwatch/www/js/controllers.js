@@ -3,7 +3,7 @@ angular.module('starter.controllers', ['ionic'])
 .controller('DashCtrl', function($scope,$http, Profiles) {
   $scope.perfil = null;
   $scope.msgerro = null; 
-  
+  $scope.mostplayed =[];
   $scope.getperfil = function(battletag,plataform,region){
     $scope.liked = false; //set liked to false first and check it.
  
@@ -29,21 +29,22 @@ angular.module('starter.controllers', ['ionic'])
     });
 
     Profiles.getHeroesQuick(battletag, plataform, region).success(function(data){
-      $scope.mostplayedQuick = data;
+      $scope.mostplayed.push({'quick': data})
+        console.log($scope.mostplayed)
 
     });
     Profiles.getHeroesCompetitive(battletag, plataform, region).success(function(data){
-      $scope.mostplayedCompetitive = data;
-
+     $scope.mostplayed.push({'competitive': data})
+      console.log($scope.mostplayed)
     });
-
+      
   }
 
-  $scope.favoritar = function(mostplayedquick,mostplayedcompetitive, profile, battletag, platform, region){
+  $scope.favoritar = function(mostplayed, profile, battletag, platform, region){
 
       $scope.liked = true;
 
-    Profiles.favoritar(mostplayedquick,mostplayedcompetitive,profile,battletag, platform, region);
+    Profiles.favoritar(mostplayed,profile,battletag, platform, region);
     $scope.favoritos = Profiles.getFavorites();
     //console.log($scope.favoritos);
      

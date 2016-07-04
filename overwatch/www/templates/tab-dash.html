@@ -56,15 +56,16 @@
         <div class="lost_n">Lost {{perfil.data.games.quick.lost}}</div>
       </p>
       <p> Level: {{perfil.data.level}}</p>
-      <i ng-class="{'icon ion-ios-heart liked': liked, 'icon ion-ios-heart ': !liked}"  ng-click="!liked ? favoritar(mostplayedQuick,mostplayedCompetitive, perfil, user.battletag,user.plataform, user.region) : null"></i>
+      <i ng-class="{'icon ion-ios-heart liked': liked, 'icon ion-ios-heart ': !liked}"  ng-click="!liked ? favoritar( mostplayed, perfil, user.battletag,user.plataform, user.region) : null"></i>
     </a>
   </div>
   <div class="item item-divider">
     Most played heroes
     <div class="mostplayedheroes">
-     <div class="row">
+
+     <div class="row" ng-repeat="heroes in mostplayed">
    <div class="lilhero" style="background-image: url({{hero.image}})"
-   ng-repeat="hero in mostplayedQuick | limitTo:4"> </div>  
+   ng-repeat="hero in heroes | limitTo:4"> </div>  
    </div>
    
       </div>

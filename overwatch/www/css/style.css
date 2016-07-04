@@ -174,3 +174,13 @@ body.platform-android   .action-sheet .button {
 
 
 }
+
+p.seccolor.competitive {
+    color: #673AB7;
+    font-weight: bold;
+}
+
+p.seccolor.quick{
+    color: #2196F3;
+    font-weight: bold;
+}
