@@ -29,6 +29,14 @@ angular.module('starter.controllers', ['ionic'])
       $scope.perfil = data;
     console.log($scope.perfil);
     });
+    Profiles.getStatsQuick(battletag, plataform, region).success(function(data){
+      $scope.quickStats = data;
+    console.log($scope.quickStats);
+    });
+    Profiles.getStatsComp(battletag, plataform, region).success(function(data){
+      $scope.compStats = data;
+    console.log($scope.compStats);
+    });
 
     Profiles.getHeroesQuick(battletag, plataform, region).success(function(data){
        $scope.quickmostplayed = data
@@ -42,11 +50,11 @@ angular.module('starter.controllers', ['ionic'])
       
   }
 
-  $scope.favoritar = function(quickmostplayed,competitivemostplayed, profile, battletag, platform, region){
+  $scope.favoritar = function(quickmostplayed,competitivemostplayed, profile, battletag, platform, region,  quickStats, compStats){
 
       $scope.liked = true;
 
-    Profiles.favoritar(quickmostplayed,competitivemostplayed,profile,battletag, platform, region);
+    Profiles.favoritar(quickmostplayed,competitivemostplayed,profile,battletag, platform, region, quickStats, compStats);
     $scope.favoritos = Profiles.getFavorites();
     //console.log($scope.favoritos);
      

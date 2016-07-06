@@ -25,8 +25,18 @@
   <div class="item item-divider">
     Quick Play
   </div>
-  
-   <a class="item item-thumbnail-left"  ng-repeat=" hero in usuariofavoritado.quickhero track by $index  "  ng-if='usuariofavoritado.quickhero && $index<4'>
+  <div class="item item-text-wrap herodata">
+    <div class="row" ng-repeat="(key,stat) in  usuariofavoritado.StatsQuick "  >
+    <div class="col col-100 ">
+      <h3>{{key}}</h3>
+      <p>{{stat}}</p>
+    </div>
+    
+    
+  </div>
+
+  </div>
+   <a class="item item-thumbnail-left herostats"  ng-repeat=" hero in usuariofavoritado.quickhero track by $index  "  ng-if='usuariofavoritado.quickhero && $index<4'>
       <img ng-src="{{hero.image}}">
       <h2>{{hero.name}}</h2>
       <p>{{hero.playtime}}</p>
@@ -36,7 +46,7 @@
  <div class="item item-divider" >
     Competitive Play 
   </div>
-       <a class="item item-thumbnail-left" ng-repeat=" hero in usuariofavoritado.competitivehero track by $index  "  ng-if='usuariofavoritado.competitivehero && $index<4'>
+       <a class="item item-thumbnail-left herostats" ng-repeat=" hero in usuariofavoritado.competitivehero track by $index  "  ng-if='usuariofavoritado.competitivehero && $index<4'>
       <img ng-src="{{hero.image}}">
       <h2>{{hero.name}}</h2>
       <p>{{hero.playtime}}</p>

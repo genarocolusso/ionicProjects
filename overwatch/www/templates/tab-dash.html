@@ -56,17 +56,12 @@
           <div class="lost_n">Lost {{perfil.data.games.quick.lost}}</div>
         </p>
         <p> Level: {{perfil.data.level}}</p>
-        <i ng-class="{'icon ion-ios-heart liked': liked, 'icon ion-ios-heart ': !liked}"  ng-click="!liked ? favoritar( quickmostplayed,competitivemostplayed, perfil, user.battletag,user.plataform, user.region) : null"></i>
+        <i ng-class="{'icon ion-ios-heart liked': liked, 'icon ion-ios-heart ': !liked}"  ng-click="!liked ? favoritar( quickmostplayed,competitivemostplayed, perfil, user.battletag,user.plataform, user.region, quickStats, compStats) : null"></i>
       </a>
     </div>
-    <div class="item item-divider">
-
-      <div class="mostplayedheroes">
-
-       <div class="marg_top_bot fivep"  >
-
-        
-
+    <div class="item item-divider"> 
+      <div class="mostplayedheroes"> 
+       <div class="marg_top_bot fivep"  > 
         <div >
           <h4 ng-if='quickmostplayed'> Quick Play - Wins {{perfil.data.games.quick.wins}} / Lost {{perfil.data.games.quick.lost}} </h4>
          <div class="lilhero" style="background-image: url({{hero.image}})"

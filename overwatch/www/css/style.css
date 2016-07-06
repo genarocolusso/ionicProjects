@@ -149,13 +149,13 @@ h2.su_text {
 .herostats img {
   background-color: #FF9800;
   border-radius: 4px; 
-    height: 50px;}
+    height: 60px !important;
+    width: auto !important;  }
 
 
 .herostats{
-
-    padding: 3px 16px;
-     min-height: 68px !important;
+ 
+     min-height: 80px !important;
 }
 .iconinline {
   font-size: 24px;
@@ -169,8 +169,15 @@ h2.su_text {
 
 .contatos.item {
   border-width: 0; }
-
-/*# sourceMappingURL=ionicapp.css.map */
+ .herodata{
+   
+  align-items: center;
+ }
+ .herodata .row div{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+ }
 
 body.platform-android   .action-sheet .button {
     text-align: left;
@@ -178,10 +185,7 @@ body.platform-android   .action-sheet .button {
     font-size: 16px;
     color: inherit;
 }
-.action-sheet-group.action-sheet-options .button.destructive{
-
-
-}
+ 
 
 p.seccolor.competitive {
     color: #673AB7;
@@ -192,6 +196,5 @@ p.seccolor.quick{
     color: #2196F3;
     font-weight: bold;
 }
-
-.marg_top_bot{ }
+ 
 .marg_top_bot.fivep{ margin: 5px 0px;}
