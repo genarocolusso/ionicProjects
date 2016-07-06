@@ -1,9 +1,9 @@
 <ion-view view-title="Overwatch Stats">
-  <ion-content class="padding">
+<ion-content class="padding">
 
 
 <div class="list">    
-      <label class="item item-input">
+  <label class="item item-input">
     <img class="icon" style="height: 14px; margin-right: 5px;"src="http://vignette2.wikia.nocookie.net/soundtracks/images/f/f2/Overwatch.png/revision/latest?cb=20151124023839">
     <input type="text" placeholder="PSN, XBL Or BattleTag (ex: Colusso-1321) change # for -" ng-model='user.battletag'  ng-trim="true">
   </label>
@@ -11,97 +11,98 @@
   <label class="item item-input item-select">
     <div class="input-label">
      <i class="icon ion-earth"></i> Region
-    </div>
-    <select ng-model='user.region'>
-      <option value="us">
-        US
-      </option>
-      <option value="eu">EU</option>
-      <option value="kr">KR</option>
-      <option value="cn">CN</option>
-      <option value="global">GLOBAL</option>
-    </select>
-  </label>
-  <label class="item item-input item-select">
-    <div class="input-label">
-     <i class="icon ion-ios-game-controller-b-outline"></i> Platform
-    </div>
-    <select ng-model='user.plataform'>
-      <option value="pc">PC</option>
-      <option value="psn">
-        PSN
-      </option>
-      <option value="xbl">XBL</option>
-      
-    </select>
-  </label>
-
-
-  <button class="button button-block button-energized" ng-click="getperfil(user.battletag, user.plataform, user.region)">
-  Find Me {{user.battletag |  filtroTag}}
-  </button>
-</div>
- 
-<div class="list"  ng-show="perfil" >
-  
-<div class="card " ng-hide="perfil.error">
-   
-  <div class="item item-text-wrap myProfile no-padding">
-    <a class="item item-thumbnail-left item-icon-right" href="#">
-      <img ng-src="{{perfil.data.avatar}}">
-      <h2><strong>{{user.battletag | filtroTag}}</strong></h2>
-      <h2>{{perfil.data.username}}</h2>
-      <p>
-        <div class="win_n">Wins {{perfil.data.games.quick.wins}}</div>
-        <div class="lost_n">Lost {{perfil.data.games.quick.lost}}</div>
-      </p>
-      <p> Level: {{perfil.data.level}}</p>
-      <i ng-class="{'icon ion-ios-heart liked': liked, 'icon ion-ios-heart ': !liked}"  ng-click="!liked ? favoritar( mostplayed, perfil, user.battletag,user.plataform, user.region) : null"></i>
-    </a>
-  </div>
-  <div class="item item-divider">
-   
-    <div class="mostplayedheroes">
-
-     <div class="marg_top_bot fivep" ng-repeat="heroes in mostplayed"  >
-
-    <h4 ng-if='heroes.quick'> Quick Play - Wins {{perfil.data.games.quick.wins}} / Lost {{perfil.data.games.quick.lost}} </h4>
-    <h4 ng-if='heroes.competitive'> Competitive Play - Wins {{perfil.data.games.competitive.wins}} / Lost {{perfil.data.games.competitive.lost}}  </h4>
-    <div >
-   <div class="lilhero" style="background-image: url({{hero.image}})"
-   ng-repeat="hero in heroes.quick| limitTo:4" ng-if="heroes.quick" > 
-     
-   
-  </div>
-    </div>
-   <div >
-  <div class="lilhero" style="background-image: url({{hero.image}})"
-   ng-repeat="hero in heroes.competitive| limitTo:4" ng-if="heroes.competitive" > 
-     
-   
-  </div>  
-  </div>
    </div>
-   
-      </div>
+   <select ng-model='user.region'>
+    <option value="us">
+      US
+    </option>
+    <option value="eu">EU</option>
+    <option value="kr">KR</option>
+    <option value="cn">CN</option>
+    <option value="global">GLOBAL</option>
+  </select>
+</label>
+<label class="item item-input item-select">
+  <div class="input-label">
+   <i class="icon ion-ios-game-controller-b-outline"></i> Platform
+ </div>
+ <select ng-model='user.plataform'>
+  <option value="pc">PC</option>
+  <option value="psn">
+    PSN
+  </option>
+  <option value="xbl">XBL</option>
 
+</select>
+</label>
+
+
+<button class="button button-block button-energized" ng-click="getperfil(user.battletag, user.plataform, user.region)">
+  Find Me {{user.battletag |  filtroTag}}
+</button>
+</div>
+
+<div class="list"  ng-show="perfil" >
+
+  <div class="card " ng-hide="perfil.error">
+
+    <div class="item item-text-wrap myProfile no-padding">
+      <a class="item item-thumbnail-left item-icon-right" href="#">
+        <img ng-src="{{perfil.data.avatar}}">
+        <h2><strong>{{user.battletag | filtroTag}}</strong></h2>
+        <h2>{{perfil.data.username}}</h2>
+        <p>
+          <div class="win_n">Wins {{perfil.data.games.quick.wins}}</div>
+          <div class="lost_n">Lost {{perfil.data.games.quick.lost}}</div>
+        </p>
+        <p> Level: {{perfil.data.level}}</p>
+        <i ng-class="{'icon ion-ios-heart liked': liked, 'icon ion-ios-heart ': !liked}"  ng-click="!liked ? favoritar( quickmostplayed,competitivemostplayed, perfil, user.battletag,user.plataform, user.region) : null"></i>
+      </a>
     </div>
+    <div class="item item-divider">
+
+      <div class="mostplayedheroes">
+
+       <div class="marg_top_bot fivep"  >
+
+        
+
+        <div >
+          <h4 ng-if='quickmostplayed'> Quick Play - Wins {{perfil.data.games.quick.wins}} / Lost {{perfil.data.games.quick.lost}} </h4>
+         <div class="lilhero" style="background-image: url({{hero.image}})"
+         ng-repeat="hero in quickmostplayed | limitTo:4"  ng-if='quickmostplayed' > 
+          
+       </div>
+     </div>
+     <div >
+       <h4 ng-if='competitivemostplayed'> Competitive Play - Wins {{perfil.data.games.competitive.wins}} / Lost {{perfil.data.games.competitive.lost}}  </h4>
+      <div class="lilhero" style="background-image: url({{hero.image}})"
+      ng-repeat="hero in competitivemostplayed | limitTo:4" ng-if='competitivemostplayed' > 
+
+     
+    </div>  
   </div>
 </div>
- 
+
+</div>
+
+</div>
+</div>
+</div>
+
 
 <div class="list" ng-show="perfil.error">
 
-<div class="card no-padding">
+  <div class="card no-padding">
     <h3>Sorry, profile not found (battletag is case-sensitive)</h3> 
   </div>
 </div>
 
 
-   
- 
- 
 
 
-  </ion-content>
+
+
+
+</ion-content>
 </ion-view>

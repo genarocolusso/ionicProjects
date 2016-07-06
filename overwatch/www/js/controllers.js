@@ -8,7 +8,7 @@ angular.module('starter.controllers', ['ionic'])
     $scope.liked = false; //set liked to false first and check it.
         $scope.perfil = null;
         $scope.msgerro = null; 
-        $scope.mostplayed =[];
+        
 
      $scope.favoritos = Profiles.getFavorites();
    
@@ -31,22 +31,22 @@ angular.module('starter.controllers', ['ionic'])
     });
 
     Profiles.getHeroesQuick(battletag, plataform, region).success(function(data){
-      $scope.mostplayed.push({'quick': data})
-        console.log($scope.mostplayed)
+       $scope.quickmostplayed = data
+       console.log($scope.quickmostplayed)
 
     });
     Profiles.getHeroesCompetitive(battletag, plataform, region).success(function(data){
-     $scope.mostplayed.push({'competitive': data})
-      console.log($scope.mostplayed)
+      $scope.competitivemostplayed = data
+         console.log($scope.competitivemostplayed)
     });
       
   }
 
-  $scope.favoritar = function(mostplayed, profile, battletag, platform, region){
+  $scope.favoritar = function(quickmostplayed,competitivemostplayed, profile, battletag, platform, region){
 
       $scope.liked = true;
 
-    Profiles.favoritar(mostplayed,profile,battletag, platform, region);
+    Profiles.favoritar(quickmostplayed,competitivemostplayed,profile,battletag, platform, region);
     $scope.favoritos = Profiles.getFavorites();
     //console.log($scope.favoritos);
      

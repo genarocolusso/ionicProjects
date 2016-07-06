@@ -43,7 +43,17 @@ angular.module('starter.services', [])
     removeFav: function(fav) {
       favoritos.splice(favoritos.indexOf(fav), 1);
     },
-    favoritar: function(mostplayed, profile, battletag,platform,region, indexo) {
+    favoritar: function(quickmostplayed,competitivemostplayed, profile, battletag,platform,region, indexo) {
+    var qplay = [] //will stor result here
+    var cplay = [] //will stor result here
+
+    for(var i in quickmostplayed) {
+   qplay.push(quickmostplayed[i]);
+}
+    for(var i in competitivemostplayed) {
+   cplay.push(competitivemostplayed[i]);
+}
+
 
       favoritos.push(
       { 
@@ -51,11 +61,20 @@ angular.module('starter.services', [])
         platform: platform,
         region: region,
         favoritado: profile.data,
-        heroesmostplayed: mostplayed 
+        quickhero: qplay,
+        competitivehero: cplay
           }); 
          
         // push it to favorite array
          
+    },
+    getAllHeroesStats: function(battletag, plataform, region){
+      var getdata = "https://api.lootbox.eu/"+plataform+"/"+region+"/"+battletag+"/quick-play/allHeroes/";
+
+      return $http({
+            url: getdata,
+            method: 'GET'
+        })
     }
   };
 
