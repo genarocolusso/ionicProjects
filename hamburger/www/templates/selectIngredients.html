@@ -1,0 +1,30 @@
+<ion-view title="Select Ingredients" id="page2"   class=" pinkoverlay">
+    <ion-content padding="false" class="has-header">
+        <ion-list id="selectIngredients-list1" class=" ">
+            <label class="item item-input">
+                <i class="icon ion-search placeholder-icon"></i>
+                <input type="search" placeholder="Search here">
+            </label>
+            <ion-item class="item-thumbnail-left item-icon-right  " id="selectIngredients-list-item1" ng-repeat="ingred in ingredients">
+                <img ng-src="img/{{ingred.image}}">
+                <div class="nitems"> {{getCount(ingred.name)}} </div>
+                <h2>{{ingred.name}}</h2>
+                <p>{{ingred.description}}</p>
+                <p>{{ingred.price | currency}}</p>
+                <a ng-click="addMore(ingred)"><i class="icon ion-android-add-circle" ></i></a>
+            </ion-item>
+             <ion-item  >
+            <a  id="selectIngredients-button4" class=" button button-balanced button-block icon  " ng-click="reset()"> Reset ingredients</a>  </ion-item>
+        </ion-list>
+        <div class="list card " id="selectIngredients-card21">
+            <ion-item id="selectIngredients-list-item5" class="  ">Total Price</ion-item>
+            <ion-item class="balanced  " id="selectIngredients-list-item6">{{ totalPricecalc() | currency }}</ion-item>
+            <div class="item item-body " id="selectIngredients-list-item-container3">
+                <form id="selectIngredients-form1" class="list ">
+                    <a ui-sref="finish" id="selectIngredients-button4" class=" button button-balanced  icon ion-cash float-right paybtn"> Cash</a>
+                    <a ui-sref="finish" id="selectIngredients-button5" class=" button button-calm  icon ion-card float-right paybtn"> Credit Card</a>
+                </form>
+            </div>
+        </div>
+    </ion-content>
+</ion-view>
