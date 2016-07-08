@@ -9741,8 +9741,6 @@ a.button {
 .float-right {
   float: right; }
 
-.paybtn {
-  margin: 0px 2px; }
 
 .midh1 {
   font-size: 2em; }
@@ -9767,3 +9765,20 @@ a.button {
     left: 70px;
     bottom: 10px;
 }
+
+.button { 
+    position: relative; 
+    padding: 0 12px;
+    min-width: 52px;
+    min-height: 47px;
+    border-width: 1px;
+    border-style: solid;
+    border-radius: 4px; 
+    text-align: center; 
+    font-size: 16px;
+    line-height: 42px;
+    cursor: pointer; 
+    text-overflow: inherit;
+}
+.paybtn {
+  margin: 0px 2px; }

@@ -3,31 +3,21 @@
         <div class="item item-body bgzero" id="finish-list-item-container4">
             <h1 id="finish-heading2" style="color:#FFFFFF;font-weight:300;text-align:center;" class=" midh1">List of ingredients</h1>
             <div class="item item-body " id="finish-list-item-container5">
-                <div>
+
+                <div ng-repeat="burger in myBurger  | orderBy : 'name' | unique : 'name' ">
                     <div class="checkoutlist">
-                        <span>2x Angus Burger</span>
-                        <span>-</span>
-                        <span>$2.00</span>
+                        <span> {{getCount(burger.name, myBurger)}} x {{burger.name}}</span>
+                        
+                        <span>{{burger.price | currency}}</span>
                     </div>
                 </div>
-                <div>
-                    <div class="checkoutlist">
-                        <span>2x Angus Burger</span>
-                        <span>-</span>
-                        <span>$2.00</span>
-                    </div>
-                </div>
-                <div>
-                    <div class="checkoutlist">
-                        <span>2x Angus Burger</span>
-                        <span>-</span>
-                        <span>$2.00</span>
-                    </div>
-                </div>
+                
                 <ion-list id="finish-list3" class=" ">
-                    <ion-item class="item-divider " id="finish-list-item-divider1">Total $6.00</ion-item>
+                    <ion-item class="item-divider " id="finish-list-item-divider1">{{totalPrice | currency}}</ion-item>
                 </ion-list>
             </div>
+
+            <h2> Exibir montagem do burger aqui </h2>
             <a ui-sref="selectIngredients" id="finish-button6" style="color:#E9A81E;" class=" button button-light  button-block fullwidth">Share</a>
         </div>
     </ion-content>

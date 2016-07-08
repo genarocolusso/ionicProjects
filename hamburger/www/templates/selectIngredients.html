@@ -3,11 +3,11 @@
         <ion-list id="selectIngredients-list1" class=" ">
             <label class="item item-input">
                 <i class="icon ion-search placeholder-icon"></i>
-                <input type="search" placeholder="Search here">
+                <input type="search" placeholder="Search here" ng-model="searchIng">
             </label>
-            <ion-item class="item-thumbnail-left item-icon-right  " id="selectIngredients-list-item1" ng-repeat="ingred in ingredients">
+            <ion-item class="item-thumbnail-left item-icon-right  " id="selectIngredients-list-item1" ng-repeat="ingred in ingredients | filter:searchIng">
                 <img ng-src="img/{{ingred.image}}">
-                <div class="nitems"> {{getCount(ingred.name)}} </div>
+                <div class="nitems"> {{getCount(ingred.name, myBurger)}} </div>
                 <h2>{{ingred.name}}</h2>
                 <p>{{ingred.description}}</p>
                 <p>{{ingred.price | currency}}</p>
@@ -18,13 +18,8 @@
         </ion-list>
         <div class="list card " id="selectIngredients-card21">
             <ion-item id="selectIngredients-list-item5" class="  ">Total Price</ion-item>
-            <ion-item class="balanced  " id="selectIngredients-list-item6">{{ totalPricecalc() | currency }}</ion-item>
-            <div class="item item-body " id="selectIngredients-list-item-container3">
-                <form id="selectIngredients-form1" class="list ">
-                    <a ui-sref="finish" id="selectIngredients-button4" class=" button button-balanced  icon ion-cash float-right paybtn"> Cash</a>
-                    <a ui-sref="finish" id="selectIngredients-button5" class=" button button-calm  icon ion-card float-right paybtn"> Credit Card</a>
-                </form>
-            </div>
+            <ion-item class="balanced  " id="selectIngredients-list-item6">{{ totalPricecalc | currency }}   <a ui-sref="finish" id="selectIngredients-button5" class=" button button-calm  icon ion-card float-right paybtn"> Finish</a></ion-item>
+             
         </div>
     </ion-content>
 </ion-view>
