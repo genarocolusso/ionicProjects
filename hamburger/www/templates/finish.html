@@ -18,6 +18,10 @@
             </div>
 
             <h2> Exibir montagem do burger aqui </h2>
+            <div class="burger_container">
+                <img ng-repeat="b in myBurger track by $index" ng-src="img/{{b.image}}">
+                
+            </div>
             <a ui-sref="selectIngredients" id="finish-button6" style="color:#E9A81E;" class=" button button-light  button-block fullwidth">Share</a>
         </div>
     </ion-content>
