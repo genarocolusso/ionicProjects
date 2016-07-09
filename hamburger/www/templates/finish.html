@@ -2,18 +2,18 @@
     <ion-content padding="true" class="has-header">
         <div class="item item-body bgzero" id="finish-list-item-container4">
             <h1 id="finish-heading2" style="color:#FFFFFF;font-weight:300;text-align:center;" class=" midh1">List of ingredients</h1>
-            <div class="item item-body " id="finish-list-item-container5">
+            <div class="item item-body" id="finish-list-item-container5">
 
-                <div ng-repeat="burger in myBurger  | orderBy : 'name' | unique : 'name' ">
+                <div ng-repeat="burger in myBurger | unique : 'name' ">
                     <div class="checkoutlist">
-                        <span> {{getCount(burger.name, myBurger)}} x {{burger.name}}</span>
+                        <span> {{getCount(burger.name, myBurger)}}  x {{burger.name}}</span>
                         
-                        <span>{{burger.price | currency}}</span>
+                        <span>{{burger.price*getCount(burger.name, myBurger) | currency}}</span>
                     </div>
                 </div>
                 
                 <ion-list id="finish-list3" class=" ">
-                    <ion-item class="item-divider " id="finish-list-item-divider1">{{totalPrice | currency}}</ion-item>
+                    <ion-item class="item-divider " id="finish-list-item-divider1">{{totalPrice | currency }}</ion-item>
                 </ion-list>
             </div>
 

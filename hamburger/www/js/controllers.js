@@ -7,7 +7,7 @@ angular.module('app.controllers', [])
 .controller('finishCtrl', function($scope, IngredientsService, filterFilter) {
   $scope.myBurger = IngredientsService.getBurger();
   $scope.totalPrice = IngredientsService.precoBurger($scope.myBurger);
-
+console.log($scope.myBurger)
 $scope.getCount = function(itemname, burgers){
      
      return filterFilter( burgers, {name:itemname}).length;
@@ -17,8 +17,7 @@ $scope.getCount = function(itemname, burgers){
 })
 
 .controller('selectIngredientsCtrl', function($scope, IngredientsService, filterFilter) {
-
-
+ 
   $scope.ingredients =[
   {name : 'Italian Bread', image : 'buns.png', description : '2 Buns', price : 1.00},
   {name : 'Angus Burger', image : 'hamburger.png', description : '130g', price : 0.90},
@@ -34,19 +33,17 @@ $scope.getCount = function(itemname, burgers){
    else
      return 0
   }
- $scope.addMore = function(item){
-  $scope.myBurger.push(item)
-  console.log($scope.myBurger)
+ $scope.addMore = function(item){ 
+   
   IngredientsService.addBurger(item)
-  window.localStorage.setItem("burgers",  JSON.stringify($scope.myBurger));  
+   $scope.myBurger = IngredientsService.getBurger();  
   $scope.totalPricecalc = IngredientsService.precoBurger($scope.myBurger)
-
+ console.log($scope.myBurger)
 }
 $scope.reset = function(){
-  $scope.myBurger = []
-  window.localStorage.removeItem("burgers")
-  window.localStorage.setItem("burgers",  JSON.stringify($scope.myBurger))
+
    IngredientsService.removeBurger()
+    $scope.myBurger =  IngredientsService.getBurger() 
   $scope.totalPricecalc = IngredientsService.precoBurger($scope.myBurger)
 }
 
