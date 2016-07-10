@@ -1,7 +1,7 @@
 <ion-view title="Finish" id="page3" style="background-color:#E9E11E;" class=" pinkoverlay">
     <ion-content padding="true" class="has-header">
         <div class="item item-body bgzero" id="finish-list-item-container4">
-            <h1 id="finish-heading2" style="color:#FFFFFF;font-weight:300;text-align:center;" class=" midh1">List of ingredients</h1>
+            <h1 id="finish-heading2" style="color:#FFFFFF;font-weight:300;text-align:center;" class=" midh1">Is your burger ready?</h1>
             <div class="item item-body" id="finish-list-item-container5">
 
                 <div ng-repeat="burger in myBurger | unique : 'name' ">
@@ -17,9 +17,9 @@
                 </ion-list>
             </div>
 
-            <h2> Exibir montagem do burger aqui </h2>
-            <div class="burger_container">
-                <img ng-repeat="b in myBurger track by $index" ng-src="img/{{b.image}}">
+            
+            <div class="burger_container" style="min-height:{{25*myBurger.length}}px">
+                <img ng-repeat="b in myBurger track by $index" ng-src="img/{{b.image}}" style="z-index:{{99-$index}}; margin-top:{{22*($index+1)}}px">
                 
             </div>
             <a ui-sref="selectIngredients" id="finish-button6" style="color:#E9A81E;" class=" button button-light  button-block fullwidth">Share</a>

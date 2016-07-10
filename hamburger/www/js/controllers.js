@@ -22,6 +22,8 @@ $scope.getCount = function(itemname, burgers){
   {name : 'Italian Bread', image : 'buns.png', description : '2 Buns', price : 1.00},
   {name : 'Angus Burger', image : 'hamburger.png', description : '130g', price : 0.90},
   {name : 'Mushrooms', image : 'mushroom.png', description : 'Tasty', price : 0.40},
+  {name : 'Lettuce', image : 'lettuce.png', description : 'Crispy', price : 0.40},
+  {name : 'Jalapeno', image : 'jalapeno.png', description : 'Super spicy', price : 0.40},
   {name : 'Swiss Cheese', image : 'swiss_cheese.png', description : '2 pieces', price : 0.30}]
 
   $scope.myBurger = IngredientsService.getBurger();
